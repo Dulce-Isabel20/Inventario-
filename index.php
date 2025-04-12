@@ -30,7 +30,7 @@
             <div class="contenedor__login-register">
 
                 <!-- Formulario de inicio de sesión -->
-                <form action="" class="formulario__login">
+                <form action="includes/menu" method="POST" class="formulario__login">
                     <h2>Iniciar sesión</h2>
                     <input type="text" placeholder="Correo electrónico">
                     <input type="password" placeholder="Contraseña">

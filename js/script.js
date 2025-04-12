@@ -62,3 +62,76 @@ anchoPage();
             caja_trasera_login.style.opacity = "1";
         }
 }
+
+//---------------------------------------------------------
+// VALIDACIÓN PARA EDITAR PRODUCTO (editar_producto.php)
+//---------------------------------------------------------
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector("form");
+    const cantidadInput = document.getElementById("cantidad");
+    const precioInput = document.querySelector('input[name="precio"]');
+
+    // Si el formulario y campos existen en esta página
+    if (form && cantidadInput && precioInput) {
+        form.addEventListener("submit", (e) => {
+            const cantidad = cantidadInput.value.trim();
+            const precio = precioInput.value.trim();
+
+            if (!cantidad || !precio) {
+                e.preventDefault();
+                alert("Por favor, complete todos los campos.");
+                return;
+            }
+
+            if (isNaN(cantidad) || cantidad <= 0) {
+                e.preventDefault();
+                alert("La cantidad debe ser un número mayor que cero.");
+                return;
+            }
+
+            if (isNaN(precio) || precio <= 0) {
+                e.preventDefault();
+                alert("El precio debe ser un número mayor que cero.");
+                return;
+            }
+        });
+    }
+});
+
+//---------------------------------------------------------
+// VALIDACIÓN PARA EDITAR CLIENTE (editar_cliente.php)
+//---------------------------------------------------------
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector("form");
+    const dni = document.getElementById("dni");
+    const nombre = document.getElementById("nombre");
+    const telefono = document.getElementById("telefono");
+    const direccion = document.getElementById("direccion");
+
+    if (form && dni && nombre && telefono && direccion) {
+        form.addEventListener("submit", (e) => {
+            const valDni = dni.value.trim();
+            const valNombre = nombre.value.trim();
+            const valTelefono = telefono.value.trim();
+            const valDireccion = direccion.value.trim();
+
+            if (!valNombre || !valTelefono || !valDireccion) {
+                e.preventDefault();
+                alert("Por favor, complete todos los campos requeridos.");
+                return;
+            }
+
+            if (valDni && (isNaN(valDni) || valDni < 0)) {
+                e.preventDefault();
+                alert("El DNI debe ser un número válido.");
+                return;
+            }
+
+            if (isNaN(valTelefono) || valTelefono.length < 7) {
+                e.preventDefault();
+                alert("El teléfono debe ser un número válido con al menos 7 dígitos.");
+                return;
+            }
+        });
+    }
+});
