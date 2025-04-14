@@ -79,6 +79,7 @@
             border-radius: .35rem;
             transition: background .3s, border .3s;
             cursor: pointer;
+            text-decoration: none;
         }
         .btn-primary {
             color: #fff;
@@ -122,10 +123,7 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 text-gray-800">Panel de Administración</h1>
-        <!-- BOTÓN NUEVA VENTA FUNCIONAL -->
-        <a href="/Inventario/php/nueva_venta.php" class="btn btn-primary">
-            <i class="fas fa-plus"></i> Nueva Venta
-        </a>
+        <a href="nueva_venta.php" class="btn btn-primary">Nueva Venta</a>
     </div>
 
     <div class="card shadow mb-4">
